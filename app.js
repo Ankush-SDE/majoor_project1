@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 
 const mongoose = require("mongoose");
-const Listing = require("../models/listing.js");
-const MONGO_URL = "mongodb://127.0.0.1:27017//wanderlust";
+const Listing = require("./models/listing.js");
+const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
 main()
 .then(()=>{
@@ -35,7 +35,7 @@ app.get("/testListing",async(req,res)=>{
   console.log("sample was saved");
   res.send("succesful testing");
 });
-app.listen(8080,()=>{
-console.log("server is listening to port 8080");
+app.listen(8000,()=>{
+console.log("server is listening to port 8000");
 });
 // this is my first comment

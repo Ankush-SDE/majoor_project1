@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const schema = mongoose.schema;
-const listingschema = new schema({
+const Schema = mongoose.Schema;
+const listingschema = new Schema({
   title:{
     type:String,
     required:true,
@@ -8,11 +8,12 @@ const listingschema = new schema({
   description:String,
   image:{
     type:String,
-    set:(v)=> v == ""?"":v,
+    default:"default.jpg",
+    set:(v)=> (v === ""?"default.jpg":v),
   },
   price:Number,
   location:String,
   country:String,
 });
 const Listing = mongoose.model("Listing",listingschema);
-modules.export = Listing;
+module.exports = Listing;
