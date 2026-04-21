@@ -19,19 +19,19 @@ async function main(){
 }
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
+app.use(express.urlencoded({extended:true}));
 
 
 
 app.get("/",(req,res)=>{
   res.send("Hi, I am root");
 });
-app.get("/listings",async(req,res)=>{
- const allListings = await listings.find({});
- res.render("\listings/index.ejs",{allListings});
+//Index Route
 
- 
-  
-   });
+app.get("/listings", async (req, res) => {
+  const allListings = await Listing.find({});
+  res.render("index.ejs", { allListings });
+});
 
 //sample url
 // app.get("/testListing",async(req,res)=>{
