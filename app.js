@@ -32,6 +32,12 @@ app.get("/listings", async (req, res) => {
   const allListings = await Listing.find({});
   res.render("index.ejs", { allListings });
 });
+//show Route
+app.get("/listings/:id",async(req,res)=>{
+  let{id} = req.params;
+  const listing = await Listing.findById(id);
+  res.render("show.ejs",{listing});
+});
 
 //sample url
 // app.get("/testListing",async(req,res)=>{
