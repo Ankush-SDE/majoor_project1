@@ -92,3 +92,14 @@ app.listen(8080,()=>{
 console.log("server is listening to port 8080");
 });
 // this is my first comment
+
+
+/*
+app.delete("/listings/:id",async(req,res)=>{
+  let {id} = req.params;
+  let deletedListing = await Listing.findByIdAndDelete(id);
+  console.log(deletedListing);
+  res.redirect("/listings");
+
+})
+*/
